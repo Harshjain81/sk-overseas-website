@@ -67,6 +67,26 @@ a {
   font-weight: 700;
 }
 
+.brand-link,
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 132px;
+  height: auto;
+  display: block;
+}
+
+.footer-logo {
+  width: 112px;
+  height: auto;
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
 .nav-links {
   display: flex;
   gap: 1.2rem;
@@ -453,6 +473,14 @@ textarea:focus {
 
   .hero-actions {
     width: 100%;
+  }
+
+  .brand-logo {
+    width: 110px;
+  }
+
+  .footer-logo {
+    width: 96px;
   }
 
   .footer-grid {
