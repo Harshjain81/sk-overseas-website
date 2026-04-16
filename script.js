@@ -6,7 +6,7 @@ const yearEl = document.getElementById("year");
 // 1. Create account at formspree.io
 // 2. Create new form and copy the form ID
 // 3. Paste your Formspree form ID below
-const FORMSPREE_ID = "https://formspree.io/f/mjgjgnzy"; // Replace with your Formspree form ID
+const FORMSPREE_ID = "mjgjgnzy"; // Replace with your Formspree form ID
 
 function hasFormspreeConfig() {
   return FORMSPREE_ID && FORMSPREE_ID.trim().length > 0;
