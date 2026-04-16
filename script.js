@@ -12,8 +12,15 @@ function hasFormspreeConfig() {
   return FORMSPREE_ID && FORMSPREE_ID.trim().length > 0;
 }
 
+function getFormspreeEndpoint() {
+  const value = FORMSPREE_ID.trim();
+  return value.startsWith("http://") || value.startsWith("https://")
+    ? value
+    : `https://formspree.io/f/${value}`;
+}
+
 async function submitLeadToFormspree(lead) {
-  const endpoint = `https://formspree.io/f/${FORMSPREE_ID}`;
+  const endpoint = getFormspreeEndpoint();
   
   const response = await fetch(endpoint, {
     method: "POST",
