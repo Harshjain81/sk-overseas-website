@@ -1,0 +1,28 @@
+{
+  "name": "primary",
+  "version": "1.0.0",
+  "description": "This is a lead-generation landing page for SK Overseas visa consultancy.",
+  "main": "script.js",
+  "scripts": {
+    "build": "esbuild speed-insights.js --bundle --format=iife --outfile=speed-insights.bundle.js --minify",
+    "dev": "esbuild speed-insights.js --bundle --format=iife --outfile=speed-insights.bundle.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harshjain81/sk-overseas-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harshjain81/sk-overseas-website/issues"
+  },
+  "homepage": "https://github.com/Harshjain81/sk-overseas-website#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}
