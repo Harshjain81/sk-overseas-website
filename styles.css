@@ -172,6 +172,82 @@ label {
   font-weight: 500;
 }
 
+.lead-card small {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.service-dropdown {
+  position: relative;
+  margin-top: 0.35rem;
+}
+
+.service-trigger {
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0.72rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #cddaf0;
+  font: inherit;
+  background: #fdfefe;
+  color: #4b5f82;
+  cursor: pointer;
+}
+
+.service-trigger.has-selection {
+  color: var(--ink);
+}
+
+.service-trigger:focus {
+  border-color: var(--primary);
+  outline: 3px solid rgba(15, 109, 255, 0.16);
+}
+
+.service-options {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  z-index: 25;
+  display: none;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #cddaf0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(10, 34, 74, 0.12);
+  padding: 0.35rem;
+}
+
+.service-dropdown.open .service-options {
+  display: block;
+}
+
+.service-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  border-radius: 8px;
+  padding: 0.45rem 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.service-options label:hover {
+  background: #f3f7ff;
+}
+
+.service-options input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
 input,
 select,
 textarea {
@@ -246,6 +322,14 @@ textarea:focus {
 
 .section-head h2 {
   margin-top: 0.2rem;
+}
+
+.section-head .eyebrow {
+  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  margin-bottom: 0.35rem;
 }
 
 .cards-grid {

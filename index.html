@@ -64,15 +64,30 @@
           <label for="email">Email Address</label>
           <input id="email" name="email" type="email" placeholder="Enter your email" required />
 
-          <label for="service">Service Required</label>
-          <select id="service" name="service" required>
-            <option value="">Select a service</option>
-            <option>Student Visa</option>
-            <option>Tourist Visa</option>
-            <option>Work Permit</option>
-            <option>PR / Immigration</option>
-            <option>Business Visa</option>
-          </select>
+          <label for="service-trigger">Service Required</label>
+          <div class="service-dropdown" data-service-dropdown>
+            <button
+              id="service-trigger"
+              class="service-trigger"
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-controls="service-options"
+            >
+              Select one or more services
+            </button>
+            <div id="service-options" class="service-options" role="group" aria-label="Service options">
+              <label><input type="checkbox" name="service" value="Student Visa" /> Student Visa</label>
+              <label><input type="checkbox" name="service" value="Tourist Visa" /> Tourist Visa</label>
+              <label><input type="checkbox" name="service" value="Work Permit" /> Work Permit</label>
+              <label><input type="checkbox" name="service" value="PR / Immigration" /> PR / Immigration</label>
+              <label><input type="checkbox" name="service" value="Business Visa" /> Business Visa</label>
+              <label><input type="checkbox" name="service" value="IELTS" /> IELTS</label>
+              <label><input type="checkbox" name="service" value="PTE" /> PTE</label>
+              <label><input type="checkbox" name="service" value="TOEFL" /> TOEFL</label>
+            </div>
+          </div>
+          <small>Open dropdown and tick one or more services.</small>
 
           <label for="country">Preferred Country</label>
           <input id="country" name="country" type="text" placeholder="Canada, UK, Australia, etc." required />
@@ -107,6 +122,27 @@
         <article class="service-card reveal">
           <h3>PR & Immigration</h3>
           <p>Point-based eligibility checks and strategic pathway consultation for long-term migration.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>IELTS</h3>
+          <p>
+            Preparation support for IELTS Academic, General Training, and UKVI formats, with guidance across
+            listening, reading, writing, and speaking for study, migration, and work goals.
+          </p>
+        </article>
+        <article class="service-card reveal">
+          <h3>PTE</h3>
+          <p>
+            End-to-end coaching for PTE Academic, PTE Core, and PTE Home with computer-based practice,
+            AI-style scoring familiarity, and strategy for faster-result exam performance.
+          </p>
+        </article>
+        <article class="service-card reveal">
+          <h3>TOEFL</h3>
+          <p>
+            TOEFL iBT-focused training for academic admissions, covering reading, listening, speaking, and
+            writing with section-wise preparation and test-day planning.
+          </p>
         </article>
       </div>
     </section>
@@ -167,6 +203,30 @@
         <blockquote class="testimonial reveal">
           <p>"Best part is quick response and practical advice. Highly recommended for visa consultation."</p>
           <cite>- Karan P.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"Very genuine consultancy. They explained every step clearly and helped me avoid mistakes in my file."</p>
+          <cite>- Neha T.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"My tourist visa got approved without stress. Team was always available for quick guidance."</p>
+          <cite>- Rahul D.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"Excellent support for SOP and document preparation. I felt confident throughout the process."</p>
+          <cite>- Priyanka V.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"They gave me realistic timelines and honest advice. No false promises, only proper guidance."</p>
+          <cite>- Manish K.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"From profile assessment to final submission, everything was handled professionally and on time."</p>
+          <cite>- Simran A.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"Great experience with SK Overseas. Their communication and follow-up made the whole journey smooth."</p>
+          <cite>- Harsh P.</cite>
         </blockquote>
       </div>
     </section>

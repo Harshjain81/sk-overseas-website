@@ -1,6 +1,11 @@
 const form = document.getElementById("consultation-form");
 const statusEl = document.getElementById("form-status");
 const yearEl = document.getElementById("year");
+const serviceDropdownEl = document.querySelector("[data-service-dropdown]");
+const serviceTriggerEl = document.getElementById("service-trigger");
+const serviceOptionEls = serviceDropdownEl
+  ? Array.from(serviceDropdownEl.querySelectorAll('input[name="service"]'))
+  : [];
 
 // Free lead capture with Formspree (https://formspree.io/)
 // 1. Create account at formspree.io
@@ -19,6 +24,43 @@ function getFormspreeEndpoint() {
     : `https://formspree.io/f/${value}`;
 }
 
+function updateServiceTriggerText() {
+  if (!serviceTriggerEl) {
+    return;
+  }
+
+  const selected = serviceOptionEls.filter((item) => item.checked);
+  if (selected.length === 0) {
+    serviceTriggerEl.textContent = "Select one or more services";
+    serviceTriggerEl.classList.remove("has-selection");
+    return;
+  }
+
+  serviceTriggerEl.textContent = `${selected.length} service${selected.length > 1 ? "s" : ""} selected`;
+  serviceTriggerEl.classList.add("has-selection");
+}
+
+if (serviceDropdownEl && serviceTriggerEl) {
+  serviceTriggerEl.addEventListener("click", () => {
+    const shouldOpen = !serviceDropdownEl.classList.contains("open");
+    serviceDropdownEl.classList.toggle("open", shouldOpen);
+    serviceTriggerEl.setAttribute("aria-expanded", String(shouldOpen));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!serviceDropdownEl.contains(event.target)) {
+      serviceDropdownEl.classList.remove("open");
+      serviceTriggerEl.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  serviceOptionEls.forEach((item) => {
+    item.addEventListener("change", updateServiceTriggerText);
+  });
+
+  updateServiceTriggerText();
+}
+
 async function submitLeadToFormspree(lead) {
   const endpoint = getFormspreeEndpoint();
   
@@ -32,7 +74,8 @@ async function submitLeadToFormspree(lead) {
       name: lead.name,
       phone: lead.phone,
       email: lead.email,
-      service: lead.service,
+      service: lead.services.join(", "),
+      services: lead.services,
       country: lead.country,
       message: lead.message || "N/A",
     }),
@@ -57,11 +100,14 @@ if (form) {
     const name = String(data.get("name") || "").trim();
     const phone = String(data.get("phone") || "").trim();
     const email = String(data.get("email") || "").trim();
-    const service = String(data.get("service") || "").trim();
+    const services = data
+      .getAll("service")
+      .map((value) => String(value).trim())
+      .filter((value) => value.length > 0);
     const country = String(data.get("country") || "").trim();
     const message = String(data.get("message") || "").trim();
 
-    if (!name || !phone || !email || !service || !country) {
+    if (!name || !phone || !email || services.length === 0 || !country) {
       statusEl.textContent = "Please fill all required fields.";
       statusEl.style.color = "#cc2936";
       return;
@@ -71,7 +117,7 @@ if (form) {
       name,
       phone,
       email,
-      service,
+      services,
       country,
       message,
     };
@@ -90,6 +136,7 @@ if (form) {
       statusEl.textContent = "Thank you! Your request has been submitted. We'll contact you soon.";
       statusEl.style.color = "#0e7a3f";
       form.reset();
+      updateServiceTriggerText();
     } catch (error) {
       statusEl.textContent = "Submission failed. Please try again.";
       statusEl.style.color = "#cc2936";
