@@ -248,6 +248,109 @@ label {
   margin: 0;
 }
 
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.contact-modal.open {
+  display: flex;
+}
+
+.contact-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 20, 42, 0.58);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.contact-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+  box-shadow: 0 24px 70px rgba(4, 18, 40, 0.35);
+  padding: 1.4rem;
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.85rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #eaf1ff;
+  color: var(--ink);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.contact-modal-kicker {
+  margin: 0 0 0.25rem;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.76rem;
+}
+
+.contact-modal h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.contact-detail-box {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 18px;
+  padding: 1rem;
+  margin-top: 0.9rem;
+}
+
+.contact-detail-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contact-detail-value {
+  display: block;
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  line-height: 1.2;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.contact-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.95rem;
+}
+
+.contact-modal-actions .btn {
+  flex: 1 1 180px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 input,
 select,
 textarea {

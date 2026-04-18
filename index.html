@@ -42,7 +42,7 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#lead-form">Get Free Eligibility Check</a>
-          <a class="btn btn-outline" href="tel:+919999999999">Call Now</a>
+          <a class="btn btn-outline call-link" href="tel:+919999999999" data-phone="+91 99999 99999">Call Now</a>
         </div>
         <div class="hero-points">
           <span>2+ Years Experience</span>
@@ -237,7 +237,7 @@
         <p>Talk to our visa experts and get your personalized migration plan today.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#lead-form">Book Free Consultation</a>
-          <a class="btn btn-outline" href="tel:+919999999999">Call Our Team</a>
+          <a class="btn btn-outline call-link" href="tel:+919999999999" data-phone="+91 99999 99999">Call Our Team</a>
         </div>
       </div>
     </section>
@@ -277,6 +277,33 @@
       <p>© <span id="year"></span> SK Overseas. All rights reserved.</p>
     </div>
   </footer>
+
+  <div class="contact-modal" id="contact-modal" aria-hidden="true">
+    <div class="contact-modal-backdrop" data-contact-modal-close></div>
+    <div class="contact-modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button class="contact-modal-close" type="button" aria-label="Close contact details" data-contact-modal-close>
+        ×
+      </button>
+      <p class="contact-modal-kicker">Contact SK Overseas</p>
+      <h2 id="contact-modal-title">Call our team</h2>
+      <div class="contact-detail-box">
+        <span class="contact-detail-label">Phone Number</span>
+        <strong id="modal-phone" class="contact-detail-value">+91 99999 99999</strong>
+        <div class="contact-modal-actions">
+          <a class="btn btn-primary" href="tel:+919999999999">Call Now</a>
+          <button class="btn btn-outline" type="button" data-copy-target="modal-phone">Copy Number</button>
+        </div>
+      </div>
+      <div class="contact-detail-box">
+        <span class="contact-detail-label">Email Address</span>
+        <strong id="modal-email" class="contact-detail-value">info@skoverseas.com</strong>
+        <div class="contact-modal-actions">
+          <a class="btn btn-outline" href="mailto:info@skoverseas.com">Send Email</a>
+          <button class="btn btn-outline" type="button" data-copy-target="modal-email">Copy Email</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
