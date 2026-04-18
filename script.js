@@ -15,7 +15,7 @@ const serviceOptionEls = serviceDropdownEl
 // 1. Create account at formspree.io
 // 2. Create new form and copy the form ID
 // 3. Paste your Formspree form ID below
-const FORMSPREE_ID = "mjgjgnzy"; // Replace with your Formspree form ID
+const FORMSPREE_ID = "https://formspree.io/f/mjgjgnzy"; // Replace with your Formspree form URL or ID
 
 function hasFormspreeConfig() {
   return FORMSPREE_ID && FORMSPREE_ID.trim().length > 0;
@@ -40,7 +40,7 @@ function updateServiceTriggerText() {
     return;
   }
 
-  serviceTriggerEl.textContent = `${selected.length} service${selected.length > 1 ? "s" : ""} selected`;
+  serviceTriggerEl.textContent = selected.map((item) => item.value).join(", ");
   serviceTriggerEl.classList.add("has-selection");
 }
 
@@ -67,26 +67,39 @@ if (serviceDropdownEl && serviceTriggerEl) {
 
 async function submitLeadToFormspree(lead) {
   const endpoint = getFormspreeEndpoint();
-  
+
+  const payload = new FormData();
+  payload.append("name", lead.name);
+  payload.append("phone", lead.phone);
+  payload.append("email", lead.email);
+  payload.append("service", lead.services.join(", "));
+  lead.services.forEach((service) => payload.append("services[]", service));
+  payload.append("country", lead.country);
+  payload.append("message", lead.message || "N/A");
+
   const response = await fetch(endpoint, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
       "Accept": "application/json",
     },
-    body: JSON.stringify({
-      name: lead.name,
-      phone: lead.phone,
-      email: lead.email,
-      service: lead.services.join(", "),
-      services: lead.services,
-      country: lead.country,
-      message: lead.message || "N/A",
-    }),
+    body: payload,
   });
 
   if (!response.ok) {
-    throw new Error(`Formspree error: ${response.statusText}`);
+    let errorMessage = response.statusText;
+
+    try {
+      const errorData = await response.json();
+      errorMessage = errorData?.error || errorData?.message || errorMessage;
+    } catch (error) {
+      try {
+        errorMessage = await response.text();
+      } catch (readError) {
+        errorMessage = response.statusText;
+      }
+    }
+
+    throw new Error(`Formspree error: ${errorMessage}`);
   }
 
   return response.json();
@@ -240,7 +253,7 @@ if (form) {
       form.reset();
       updateServiceTriggerText();
     } catch (error) {
-      statusEl.textContent = "Submission failed. Please try again.";
+      statusEl.textContent = error?.message ? error.message : "Submission failed. Please try again.";
       statusEl.style.color = "#cc2936";
     }
   });
