@@ -90,7 +90,16 @@ async function submitLeadToFormspree(lead) {
 
     try {
       const errorData = await response.json();
-      errorMessage = errorData?.error || errorData?.message || errorMessage;
+      if (Array.isArray(errorData?.errors) && errorData.errors.length > 0) {
+        errorMessage = errorData.errors
+          .map((item) => {
+            const field = item?.field ? `${item.field}: ` : "";
+            return `${field}${item?.message || "Invalid value"}`;
+          })
+          .join(" | ");
+      } else {
+        errorMessage = errorData?.error || errorData?.message || errorMessage;
+      }
     } catch (error) {
       try {
         errorMessage = await response.text();
