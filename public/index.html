@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SK Overseas helps students, professionals, and families with visa consultation and immigration guidance." />
+  <title>SK Overseas | Visa & Immigration Consultancy</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="shortcut icon" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-blur bg-blur-1" aria-hidden="true"></div>
+  <div class="bg-blur bg-blur-2" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a href="#" class="brand brand-link" aria-label="SK Overseas home">
+        <img src="logo.svg" alt="SK Overseas" class="brand-logo" />
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary" href="#lead-form">Book Free Consultation</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-content reveal">
+        <p class="eyebrow">Trusted Visa Guidance</p>
+        <h1>Move Forward With The Right Visa Strategy</h1>
+        <p class="hero-sub">
+          SK Overseas helps you with student visas, tourist visas, work permits, and permanent residency pathways.
+          Clear process, transparent guidance, and faster decision-making for your immigration journey.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#lead-form">Get Free Eligibility Check</a>
+          <a class="btn btn-outline call-link" href="tel:+919999999999" data-phone="+91 99999 99999">Call Now</a>
+        </div>
+        <div class="hero-points">
+          <span>2+ Years Experience</span>
+          <span>High Approval Support</span>
+          <span>End-to-End Documentation</span>
+        </div>
+      </div>
+
+      <aside id="lead-form" class="lead-card reveal" aria-label="Lead form">
+        <h2>Start Your Visa Journey</h2>
+        <p>Fill details and our team will call you back within 24 hours.</p>
+        <form id="consultation-form" novalidate>
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" placeholder="Enter your full name" required />
+
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" placeholder="Enter your phone number" required />
+
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email" required />
+
+          <label for="service-trigger">Service Required</label>
+          <div class="service-dropdown" data-service-dropdown>
+            <button
+              id="service-trigger"
+              class="service-trigger"
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-controls="service-options"
+            >
+              Select one or more services
+            </button>
+            <div id="service-options" class="service-options" role="group" aria-label="Service options">
+              <label><input type="checkbox" name="service" value="Student Visa" /> Student Visa</label>
+              <label><input type="checkbox" name="service" value="Tourist Visa" /> Tourist Visa</label>
+              <label><input type="checkbox" name="service" value="Work Permit" /> Work Permit</label>
+              <label><input type="checkbox" name="service" value="PR / Immigration" /> PR / Immigration</label>
+              <label><input type="checkbox" name="service" value="Business Visa" /> Business Visa</label>
+              <label><input type="checkbox" name="service" value="IELTS" /> IELTS</label>
+              <label><input type="checkbox" name="service" value="PTE" /> PTE</label>
+              <label><input type="checkbox" name="service" value="TOEFL" /> TOEFL</label>
+            </div>
+          </div>
+          <small>Open dropdown and tick one or more services.</small>
+
+          <label for="country">Preferred Country</label>
+          <input id="country" name="country" type="text" placeholder="Canada, UK, Australia, etc." required />
+
+          <label for="message">Your Query</label>
+          <textarea id="message" name="message" rows="3" placeholder="Tell us about your profile"></textarea>
+
+          <button type="submit" class="btn btn-primary btn-full">Request Callback</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </aside>
+    </section>
+
+    <section id="services" class="section container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Our Core Services</p>
+        <h2>Everything You Need For A Successful Application</h2>
+      </div>
+      <div class="cards-grid">
+        <article class="service-card reveal">
+          <h3>Student Visa</h3>
+          <p>Course-country matching, SOP guidance, offer letter support, and complete filing.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>Tourist Visa</h3>
+          <p>Travel profile review, itinerary compliance, and strong documentation checks.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>Work Permit</h3>
+          <p>Skill profile analysis, employer route guidance, and paperwork support.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>PR & Immigration</h3>
+          <p>Point-based eligibility checks and strategic pathway consultation for long-term migration.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>IELTS</h3>
+          <p>
+            Preparation support for IELTS Academic, General Training, and UKVI formats, with guidance across
+            listening, reading, writing, and speaking for study, migration, and work goals.
+          </p>
+        </article>
+        <article class="service-card reveal">
+          <h3>PTE</h3>
+          <p>
+            End-to-end coaching for PTE Academic, PTE Core, and PTE Home with computer-based practice,
+            AI-style scoring familiarity, and strategy for faster-result exam performance.
+          </p>
+        </article>
+        <article class="service-card reveal">
+          <h3>TOEFL</h3>
+          <p>
+            TOEFL iBT-focused training for academic admissions, covering reading, listening, speaking, and
+            writing with section-wise preparation and test-day planning.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="process" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Simple Workflow</p>
+          <h2>Your 4-Step Process With SK Overseas</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <span>1</span>
+            <div>
+              <h3>Free Profile Evaluation</h3>
+              <p>Understand eligibility, options, and document requirements.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <span>2</span>
+            <div>
+              <h3>Personalized Visa Plan</h3>
+              <p>Get a country + category recommendation suited to your goals.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <span>3</span>
+            <div>
+              <h3>Document & Filing Support</h3>
+              <p>End-to-end help from forms to final submission.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <span>4</span>
+            <div>
+              <h3>Interview & Decision Support</h3>
+              <p>Guidance until final decision for a smoother outcome.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Client Success</p>
+        <h2>People Trust SK Overseas</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial reveal">
+          <p>"Professional and transparent team. My student visa process became very smooth."</p>
+          <cite>- Riya M.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"I got clear guidance for documentation and interview. Great support from start to finish."</p>
+          <cite>- Arjun S.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"Best part is quick response and practical advice. Highly recommended for visa consultation."</p>
+          <cite>- Karan P.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"Very genuine consultancy. They explained every step clearly and helped me avoid mistakes in my file."</p>
+          <cite>- Neha T.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"My tourist visa got approved without stress. Team was always available for quick guidance."</p>
+          <cite>- Rahul D.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"Excellent support for SOP and document preparation. I felt confident throughout the process."</p>
+          <cite>- Priyanka V.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"They gave me realistic timelines and honest advice. No false promises, only proper guidance."</p>
+          <cite>- Manish K.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"From profile assessment to final submission, everything was handled professionally and on time."</p>
+          <cite>- Simran A.</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"Great experience with SK Overseas. Their communication and follow-up made the whole journey smooth."</p>
+          <cite>- Harsh P.</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="contact" class="section cta-block">
+      <div class="container cta-inner reveal">
+        <h2>Ready To Begin?</h2>
+        <p>Talk to our visa experts and get your personalized migration plan today.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#lead-form">Book Free Consultation</a>
+          <a class="btn btn-outline call-link" href="tel:+919999999999" data-phone="+91 99999 99999">Call Our Team</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <section class="footer-col">
+        <a href="#" class="footer-brand" aria-label="SK Overseas home">
+          <img src="logo.svg" alt="SK Overseas" class="footer-logo" />
+        </a>
+        <h3>About Us</h3>
+        <p>
+          SK Overseas is a visa and immigration consultancy focused on transparent guidance and personalized support.
+          We help students, professionals, and families choose the right pathway with complete documentation and process assistance.
+        </p>
+      </section>
+
+      <section class="footer-col">
+        <h3>Quick Links</h3>
+        <nav class="footer-links" aria-label="Footer quick links">
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="#lead-form">Free Consultation</a>
+        </nav>
+      </section>
+
+      <section class="footer-col">
+        <h3>Contact Details</h3>
+        <p>Phone: <a href="tel:+919999999999">+91 99999 99999</a></p>
+        <p>Email: <a href="mailto:info@skoverseas.com">info@skoverseas.com</a></p>
+        <p>Address: 5 Devalay Bunglow chandkheda Ahmedabad Gujarat 382424</p>
+      </section>
+    </div>
+    <div class="container footer-meta">
+      <p>© <span id="year"></span> SK Overseas. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="contact-modal" id="contact-modal" aria-hidden="true">
+    <div class="contact-modal-backdrop" data-contact-modal-close></div>
+    <div class="contact-modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button class="contact-modal-close" type="button" aria-label="Close contact details" data-contact-modal-close>
+        ×
+      </button>
+      <p class="contact-modal-kicker">Contact SK Overseas</p>
+      <h2 id="contact-modal-title">Call our team</h2>
+      <div class="contact-detail-box">
+        <span class="contact-detail-label">Phone Number</span>
+        <strong id="modal-phone" class="contact-detail-value">+91 99999 99999</strong>
+        <div class="contact-modal-actions">
+          <a class="btn btn-primary" href="tel:+919999999999">Call Now</a>
+          <button class="btn btn-outline" type="button" data-copy-target="modal-phone">Copy Number</button>
+        </div>
+      </div>
+      <div class="contact-detail-box">
+        <span class="contact-detail-label">Email Address</span>
+        <strong id="modal-email" class="contact-detail-value">info@skoverseas.com</strong>
+        <div class="contact-modal-actions">
+          <a class="btn btn-outline" href="mailto:info@skoverseas.com">Send Email</a>
+          <button class="btn btn-outline" type="button" data-copy-target="modal-email">Copy Email</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
