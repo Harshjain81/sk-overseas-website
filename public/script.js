@@ -208,7 +208,7 @@ if (callLinkEls.length > 0) {
       }
 
       if (modalEmail) {
-        modalEmail.textContent = "info@skoverseas.com";
+        modalEmail.textContent = "info@skoverseasvisaconsultancy.com";
       }
 
       openContactModal();
