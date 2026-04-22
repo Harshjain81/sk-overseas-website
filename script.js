@@ -59,25 +59,25 @@ if (serviceDropdownEl && serviceTriggerEl) {
 }
 
 async function submitLeadToWeb3Forms(lead) {
-  const payload = {
-    access_key: WEB3FORMS_ACCESS_KEY.trim(),
-    subject: "New Consultation Request - SK Overseas",
-    from_name: "SK Overseas Website",
-    name: lead.name,
-    phone: lead.phone,
-    email: lead.email,
-    service: lead.services.join(", "),
-    country: lead.country,
-    message: lead.message || "N/A",
-  };
+  const payload = new FormData();
+  payload.append("access_key", WEB3FORMS_ACCESS_KEY.trim());
+  payload.append("subject", "New Consultation Request - SK Overseas");
+  payload.append("from_name", "SK Overseas Website");
+  payload.append("name", lead.name);
+  payload.append("phone", lead.phone);
+  payload.append("email", lead.email);
+  payload.append("replyto", lead.email);
+  payload.append("service", lead.services.join(", "));
+  payload.append("country", lead.country);
+  payload.append("message", lead.message || "N/A");
+  payload.append("botcheck", "");
 
   const response = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
       "Accept": "application/json",
     },
-    body: JSON.stringify(payload),
+    body: payload,
   });
 
   if (!response.ok) {
