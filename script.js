@@ -256,8 +256,12 @@ if (form) {
     statusEl.style.color = "#0f6dff";
 
     try {
-      await submitLeadToWeb3Forms(lead);
-      statusEl.textContent = "Thank you! Your request has been submitted. We'll contact you soon.";
+      const result = await submitLeadToWeb3Forms(lead);
+      const submissionId = result?.data?.id || result?.data?.submission_id || "";
+      const apiMessage = result?.message || "Submitted successfully";
+      statusEl.textContent = submissionId
+        ? `Thank you! ${apiMessage}. Ref: ${submissionId}`
+        : `Thank you! ${apiMessage}.`;
       statusEl.style.color = "#0e7a3f";
       form.reset();
       updateServiceTriggerText();
