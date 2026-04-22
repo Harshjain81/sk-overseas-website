@@ -15,7 +15,7 @@ const serviceOptionEls = serviceDropdownEl
 // 1. Create account at web3forms.com
 // 2. Create a form and copy your Access Key
 // 3. Paste your Access Key below
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+const WEB3FORMS_ACCESS_KEY = "04d1c22f-1839-4af2-a77c-fa73d415d7ac";
 
 function hasWeb3FormsConfig() {
   return WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY.trim().length > 0 && WEB3FORMS_ACCESS_KEY !== "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
