@@ -6,7 +6,7 @@ This is a lead-generation landing page for SK Overseas visa consultancy.
 
 - `index.html` - Main landing page
 - `styles.css` - Styling and responsive design
-- `script.js` - Lead form behavior + Formspree submission
+- `script.js` - Lead form behavior + Web3Forms submission
 
 ## Run Locally
 
@@ -18,26 +18,26 @@ Open `index.html` directly in browser.
 2. Replace testimonials with real client reviews
 3. Update contact address in footer section
 
-## Free Lead Capture With Formspree + Vercel Deployment
+## Free Lead Capture With Web3Forms + Vercel Deployment
 
-This website is fully configured for free lead capture using **Formspree** and can be deployed on **Vercel** (both free).
+This website is fully configured for free lead capture using **Web3Forms** and can be deployed on **Vercel** (both free).
 
-### Step 1: Create Formspree Account
+### Step 1: Create Web3Forms Account
 
-1. Go to https://formspree.io/
+1. Go to https://web3forms.com/
 2. Sign up with your email (free)
-3. Create a new form (any name like "SK Overseas Leads")
-4. Copy your **Form ID** (looks like: `abcde12345`)
+3. Generate your **Access Key**
+4. Copy your Access Key
 
 ### Step 2: Configure in script.js
 
 Open `script.js` and update this line:
 
 ```javascript
-const FORMSPREE_ID = "YOUR_FORMSPREE_ID_HERE";
+const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
 ```
 
-Replace `YOUR_FORMSPREE_ID_HERE` with your actual Form ID from Formspree.
+Replace `YOUR_WEB3FORMS_ACCESS_KEY_HERE` with your actual key from Web3Forms.
 
 ### Step 3: Deploy on Vercel (Free)
 
@@ -51,12 +51,12 @@ Replace `YOUR_FORMSPREE_ID_HERE` with your actual Form ID from Formspree.
 
 1. Visit your Vercel site
 2. Fill the form and submit
-3. Check your email inbox - Formspree sends you all submissions
-4. Formspree dashboard also shows all responses
+3. Check your email inbox - Web3Forms sends you all submissions
+4. You can also monitor submissions in your Web3Forms dashboard
 
 ### Summary of Free Services
 
-- **Formspree**: Free email form backend
+- **Web3Forms**: Free email form backend
 - **Vercel**: Free hosting, auto-deploy from GitHub
 - **GitHub**: Free repo hosting (optional but recommended)
 

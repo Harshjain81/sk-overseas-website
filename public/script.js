@@ -11,21 +11,14 @@ const serviceOptionEls = serviceDropdownEl
   ? Array.from(serviceDropdownEl.querySelectorAll('input[name="service"]'))
   : [];
 
-// Free lead capture with Formspree (https://formspree.io/)
-// 1. Create account at formspree.io
-// 2. Create new form and copy the form ID
-// 3. Paste your Formspree form ID below
-const FORMSPREE_ID = "https://formspree.io/f/mjgjgnzy"; // Replace with your Formspree form URL or ID
+// Free lead capture with Web3Forms (https://web3forms.com/)
+// 1. Create account at web3forms.com
+// 2. Create a form and copy your Access Key
+// 3. Paste your Access Key below
+const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
 
-function hasFormspreeConfig() {
-  return FORMSPREE_ID && FORMSPREE_ID.trim().length > 0;
-}
-
-function getFormspreeEndpoint() {
-  const value = FORMSPREE_ID.trim();
-  return value.startsWith("http://") || value.startsWith("https://")
-    ? value
-    : `https://formspree.io/f/${value}`;
+function hasWeb3FormsConfig() {
+  return WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY.trim().length > 0 && WEB3FORMS_ACCESS_KEY !== "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
 }
 
 function updateServiceTriggerText() {
@@ -65,24 +58,26 @@ if (serviceDropdownEl && serviceTriggerEl) {
   updateServiceTriggerText();
 }
 
-async function submitLeadToFormspree(lead) {
-  const endpoint = getFormspreeEndpoint();
+async function submitLeadToWeb3Forms(lead) {
+  const payload = {
+    access_key: WEB3FORMS_ACCESS_KEY.trim(),
+    subject: "New Consultation Request - SK Overseas",
+    from_name: "SK Overseas Website",
+    name: lead.name,
+    phone: lead.phone,
+    email: lead.email,
+    service: lead.services.join(", "),
+    country: lead.country,
+    message: lead.message || "N/A",
+  };
 
-  const payload = new FormData();
-  payload.append("name", lead.name);
-  payload.append("phone", lead.phone);
-  payload.append("email", lead.email);
-  payload.append("service", lead.services.join(", "));
-  lead.services.forEach((service) => payload.append("services[]", service));
-  payload.append("country", lead.country);
-  payload.append("message", lead.message || "N/A");
-
-  const response = await fetch(endpoint, {
+  const response = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: {
+      "Content-Type": "application/json",
       "Accept": "application/json",
     },
-    body: payload,
+    body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
@@ -108,10 +103,15 @@ async function submitLeadToFormspree(lead) {
       }
     }
 
-    throw new Error(`Formspree error: ${errorMessage}`);
+    throw new Error(`Web3Forms error: ${errorMessage}`);
   }
 
-  return response.json();
+  const result = await response.json();
+  if (!result?.success) {
+    throw new Error(`Web3Forms error: ${result?.message || "Submission failed"}`);
+  }
+
+  return result;
 }
 
 if (yearEl) {
@@ -246,8 +246,8 @@ if (form) {
       message,
     };
 
-    if (!hasFormspreeConfig()) {
-      statusEl.textContent = "Form is not yet configured. Please add your Formspree ID in script.js.";
+    if (!hasWeb3FormsConfig()) {
+      statusEl.textContent = "Form is not yet configured. Please add your Web3Forms Access Key in script.js.";
       statusEl.style.color = "#cc2936";
       return;
     }
@@ -256,7 +256,7 @@ if (form) {
     statusEl.style.color = "#0f6dff";
 
     try {
-      await submitLeadToFormspree(lead);
+      await submitLeadToWeb3Forms(lead);
       statusEl.textContent = "Thank you! Your request has been submitted. We'll contact you soon.";
       statusEl.style.color = "#0e7a3f";
       form.reset();
