@@ -2,6 +2,7 @@ const form = document.getElementById("consultation-form");
 const statusEl = document.getElementById("form-status");
 const yearEl = document.getElementById("year");
 const callLinkEls = document.querySelectorAll(".call-link");
+const COMPANY_PHONE = "+91 9213447718";
 const contactModalEl = document.getElementById("contact-modal");
 const contactModalCloseEls = document.querySelectorAll("[data-contact-modal-close]");
 const copyButtonEls = document.querySelectorAll("[data-copy-target]");
@@ -199,7 +200,7 @@ if (callLinkEls.length > 0) {
       }
 
       event.preventDefault();
-      const companyPhone = link.getAttribute("data-phone") || "+91 99999 99999";
+      const companyPhone = link.getAttribute("data-phone") || COMPANY_PHONE;
       const modalPhone = document.getElementById("modal-phone");
       const modalEmail = document.getElementById("modal-email");
 
